@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | CosmoVision</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            CosmoVision
+        </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/planets">Planets</a></li>
+            <li><a href="/constellations">Constellations</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/observatories">Observatories</a></li>
+            <li><a href="/news">News</a></li>
+            <li><a href="/chatbot">AI Chatbot</a></li>
+        </ul>
+        <div class="right">
+            <a href="/v1/auth/login">Login</a>
+            <a href="/v1/auth/register" class="register-btn">Register</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="left">
+            <h1>Return to your night sky.</h1>
+            <p>Open saved worlds, recent conversations, and the next clear observing window.</p>
+        </div>
+    </div>
+        <div class="form-box">
+        
+            <h2>Login oke </h2>
+        
+            <form action="/v1/auth/login" method="post">
+        
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" name="email" placeholder="Enter your email..." required>
+                </div>
+        
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" placeholder="Create a strong password..." required>
+                </div>
+                <button type="submit">
+                    Login oke
+                </button>
+            </form>
+            <p class="login">
+                New to ConsmoVision? 
+                <a href="/v1/auth/register">Create an account.</a>
+            </p>
+
+    </div>
+</body>
+</html>

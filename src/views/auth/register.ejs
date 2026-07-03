@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | CosmoVision</title>
+
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            CosmoVision
+        </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/planets">Planets</a></li>
+            <li><a href="/constellations">Constellations</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/observatories">Observatories</a></li>
+            <li><a href="/news">News</a></li>
+            <li><a href="/chatbot">AI Chatbot</a></li>
+        </ul>
+        <div class="right">
+            <a href="v1/auth/login">Login</a>
+            <a href="v1/auth/register" class="register-btn">Register</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="left">
+            <h1>
+                Build your<br>
+                observing<br>
+                record.
+            </h1>
+
+            <p>
+                Save celestial objects, track questions, and receive
+                recommendations shaped by your location.
+            </p>
+        </div>
+        <div class="form-box">
+
+            <h2>Create account</h2>
+
+            <form action="/v1/auth/register" method="post">
+
+                <div class="field">
+                    <label for="fullname">Full name</label>
+                    <input id="fullname" type="text" name="fullname" placeholder="Enter your full name..." required>
+                </div>
+
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" name="email" placeholder="Enter your email..." required>
+                </div>
+
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" placeholder="Create a strong password..."
+                        required>
+                </div>
+
+                <div class="field">
+                    <label for="confirmPassword">Confirm password</label>
+                    <input id="confirmPassword" type="password" name="confirmPassword"
+                        placeholder="Confirm your password..." required>
+                </div>
+                <div class="field">
+                    <label for="location">Location</label>
+                    <input id="location" type="text" name="location" placeholder="Enter your city...">
+                </div>
+
+                <button type="submit">
+                    Create account
+                </button>
+            </form>
+            <p class="login">
+                Already registered?
+                <a href="/v1/auth/login">Log in.</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #070b17;
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 25% 60%, rgba(156, 81, 255, .55), transparent 35%),
+        radial-gradient(circle at 80% 25%, rgba(0, 255, 255, .25), transparent 30%),
+        #070b17;
+    z-index: -2;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("https://www.transparenttextures.com/patterns/stardust.png");
+    opacity: .3;
+    z-index: -1;
+}
+
+/* ================= Navbar ================= */
+
+nav {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 70px;
+    background: #080c18;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #77d7ff;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+nav ul li a {
+    color: #ddd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+}
+
+nav ul li a:hover {
+    color: #77d7ff;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.right a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.register-btn {
+    padding: 10px 24px;
+    border: 1px solid #59d4ff;
+    border-radius: 30px;
+    background: rgba(72, 182, 255, .15);
+    transition: .3s;
+}
+
+.register-btn:hover {
+    background: #59d4ff;
+    color: #111;
+}
+
+/* ================= Main ================= */
+
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: auto;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left {
+    width: 48%;
+}
+
+.left h1 {
+    font-size: 85px;
+    line-height: 1.05;
+    margin-bottom: 30px;
+}
+
+.left p {
+    width: 80%;
+    color: #aeb8c5;
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+/* ================= Form ================= */
+
+.form-box {
+    width: 500px;
+    background: #111827;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .4);
+}
+
+.form-box h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.field input {
+    width: 100%;
+    padding: 15px;
+    background: #0f172a;
+    color: #fff;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.field input:focus {
+    outline: none;
+    border-color: #59d4ff;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: #6bd5ff;
+    color: #111;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    background: #55cfff;
+}
+
+.login {
+    margin-top: 20px;
+    text-align: center;
+    color: #bbb;
+}
+
+.login a {
+    color: #77d7ff;
+    text-decoration: none;
+}
+
+.login a:hover {
+    text-decoration: underline;
+}
+
+/* ================= Responsive ================= */
+
+@media (max-width:1000px) {
+
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+        padding: 50px 0;
+    }
+
+    .left {
+        width: 100%;
+        text-align: center;
+    }
+
+    .left h1 {
+        font-size: 55px;
+    }
+
+    .left p {
+        width: 100%;
+    }
+
+    .form-box {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
