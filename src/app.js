@@ -1,8 +1,9 @@
 
 const express = require("express");
-const webRouter = require('./routes/web');
+const webRouter = require('./routes/home-routes');
 const Authrouter = require('./routes/auth');
 const viewconfig = require('./config/viewEngine');
+const profileRouter = require('./routes/profile-routes');
 const connections = require('./config/data');
 const passport = require('passport');
 const session = require('express-session');
@@ -42,10 +43,16 @@ configPassport();
 app.use(passport.initialize());
 // Kết nối Passport với express-session
 app.use(passport.session());
+//truyền dữ liệu user vào res.locals để sử dụng trong view
+app.use((req, res, next) => {
+    res.locals.user = req.user || null;
+    next();
+});
 
 // config web
 app.use('/', webRouter);
 app.use('/v1/auth', Authrouter);
+app.use('/profile', profileRouter);
 
 (async (req, res) => {
     try {

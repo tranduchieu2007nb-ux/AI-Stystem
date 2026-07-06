@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const planetSchema = new mongoose.Schema(
   {
-        slug: { // định danh duy nhất cho hành tinh, thường được sử dụng trong URL
+        slug: { // định danh duy nhất cho hành tinh, thường được sử dụng trong URL và ảnh
           type: String,
           required: true,
           trim: true, // tự động xóa khoảng trắng đầu và cuối
