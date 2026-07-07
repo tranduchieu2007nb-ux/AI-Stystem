@@ -13,32 +13,32 @@ const getAuthRegister = (req, res) => {
 
 const postAuthRegister = async (req, res) => {
     try {
-      const { fullname, email, password, location, confirmPassword } = req.body; // Lấy dữ liệu từ request body
-      console.log(req.body);
+        const { fullname, email, password, location, confirmPassword } = req.body; // Lấy dữ liệu từ request body
+        console.log(req.body);
 
-      if (password !== confirmPassword) {
+        if (password !== confirmPassword) {
             return res.send("Confirm password is incorrect.");// Kiểm tra xác nhận mật khẩu
-      }
-      if (!fullname || !email || !password || !confirmPassword) {
-    return res.send("Please fill all fields.");
-}
-      const hashedPassword = await bcrypt.hash(password, 10); // Mã hóa mật khẩu
-      const existingUser = await User.findOne({
+        }
+        if (!fullname || !email || !password || !confirmPassword) {
+            return res.send("Please fill all fields.");
+        }
+        const hashedPassword = await bcrypt.hash(password, 10); // Mã hóa mật khẩu
+        const existingUser = await User.findOne({
             email: email.toLowerCase()
         });
         if (existingUser) {
             return res.send("Email already exists.");
-      }
-              const user = new User({// Tạo một đối tượng người dùng mới`
+        }
+        const user = new User({// Tạo một đối tượng người dùng mới`
             fullname,
             email: email.toLowerCase(),
             password: hashedPassword,
             location
-              });
-      await user.save();
-      res.redirect("/v1/auth/login");
+        });
+        await user.save();
+        res.redirect("/v1/auth/login");
     } catch (error) {
-      console.log("error dawng ky : ", error);
+        console.log("error dawng ky : ", error);
     }
 }
 
@@ -62,10 +62,19 @@ const postAuthLogin = (req, res, next) => {
 
 };
 
+const getAuthLogout = (req, res, next) => {
+    req.logout((error) => {
+        if (error) {
+            return next(error);
+        }
+        res.redirect('/');
+    });
+};
 
 module.exports = {
     getAuthRegister,
     postAuthRegister,
     getAuthLogin,
-    postAuthLogin
+    postAuthLogin,
+    getAuthLogout
 }

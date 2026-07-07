@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Create Planet</h1>
+            <a href="/admin" class="btn btn-secondary">Back</a>
+        </div>
+        <% if (error) { %>
+            <div class="alert alert-danger">
+                <%= error %>
+            </div>
+            <% } %>
+                <form action="/admin/planets/create" method="POST">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Slug</label>
+                            <input name="slug" value="<%= planet.slug || '' %>" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Name</label>
+                            <input name="name" value="<%= planet.name || '' %>" class="form-control" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Image URL</label>
+                            <input name="image" value="<%= planet.image || '' %>" class="form-control" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Description</label>
+                            <textarea name="description" class="form-control" rows="4"
+                                required><%= planet.description || '' %></textarea>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Diameter</label>
+                            <input name="diameter" type="number" value="<%= planet.diameter || '' %>"
+                                class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Mass</label>
+                            <input name="mass" type="number" value="<%= planet.mass || '' %>" class="form-control"
+                                required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Gravity</label>
+                            <input name="gravity" type="number" value="<%= planet.gravity || '' %>" class="form-control"
+                                required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Atmosphere</label>
+                            <input name="atmosphere" value="<%= planet.atmosphere || '' %>" class="form-control"
+                                required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Temperature</label>
+                            <input name="temperature" type="number" value="<%= planet.temperature || '' %>"
+                                class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Distance to Sun</label>
+                            <input name="distanceSun" type="number" value="<%= planet.distanceSun || '' %>"
+                                class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Distance to Earth</label>
+                            <input name="distanceEarth" type="number" value="<%= planet.distanceEarth || '' %>"
+                                class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Facts (comma separated)</label>
+                            <input name="facts" value="<%= planet.facts ? planet.facts.join(', ') : '' %>"
+                                class="form-control">
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Tags (comma separated)</label>
+                            <input name="tags" value="<%= planet.tags ? planet.tags.join(', ') : '' %>"
+                                class="form-control">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+                    </div>
+                </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -4,6 +4,7 @@ const webRouter = require('./routes/home-routes');
 const Authrouter = require('./routes/auth');
 const viewconfig = require('./config/viewEngine');
 const profileRouter = require('./routes/profile-routes');
+const adminRouter = require('./routes/admin');
 const connections = require('./config/data');
 const passport = require('passport');
 const session = require('express-session');
@@ -22,7 +23,7 @@ app.use(express.json());
 // config passport session
 app.use(
     session({
-      // Khóa bí mật dùng để mã hóa (ký) Session ID trong Cookie
+        // Khóa bí mật dùng để mã hóa (ký) Session ID trong Cookie
         // Người dùng không nhìn thấy nội dung này.
         // Nên đặt chuỗi dài và khó đoán.
         secret: "abcxyz",
@@ -53,6 +54,7 @@ app.use((req, res, next) => {
 app.use('/', webRouter);
 app.use('/v1/auth', Authrouter);
 app.use('/profile', profileRouter);
+app.use('/admin', adminRouter);
 
 (async (req, res) => {
     try {

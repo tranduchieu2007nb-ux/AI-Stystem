@@ -1,4 +1,26 @@
 {
+  "name": "ai-system",
+  "version": "1.0.0",
+  "description": "tranduchieu",
+  "keywords": [
+    "AI-truot"
+  ],
+  "homepage": "https://github.com/tranduchieu2007nb-ux/AI-Stystem#readme",
+  "bugs": {
+    "url": "https://github.com/tranduchieu2007nb-ux/AI-Stystem/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tranduchieu2007nb-ux/AI-Stystem.git"
+  },
+  "license": "ISC",
+  "author": "tranduchieu",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/app.js"
+  },
   "dependencies": {
     "bcrypt": "^6.0.0",
     "dotenv": "^17.4.2",
@@ -9,26 +31,5 @@
     "nodemon": "^3.1.14",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0"
-  },
-  "name": "ai-system",
-  "version": "1.0.0",
-  "description": "tranduchieu",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tranduchieu2007nb-ux/AI-Stystem.git"
-  },
-  "keywords": [
-    "AI-truot"
-  ],
-  "author": "tranduchieu",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tranduchieu2007nb-ux/AI-Stystem/issues"
-  },
-  "homepage": "https://github.com/tranduchieu2007nb-ux/AI-Stystem#readme"
+  }
 }
