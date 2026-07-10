@@ -10,6 +10,7 @@ const getAuthRegister = (req, res) => {
         formData: {},
     });
 }
+// Xử lý đăng ký người dùng
 
 const postAuthRegister = async (req, res) => {
     try {
