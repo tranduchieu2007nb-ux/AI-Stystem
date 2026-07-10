@@ -7,3 +7,4 @@ DB_HOST=mongodb+srv://tranduchieu:TranH2007tbb@cluster0.rrqomah.mongodb.net/AI_S
 2. seed :là 1 file để thêm dữ liệu mẫu cho model
    node src/seed/planet-seed.js
 3. passport để đăng nhập thì profile lấy thông tin từ req.user
+

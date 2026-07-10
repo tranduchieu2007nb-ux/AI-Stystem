@@ -1,6 +1,6 @@
 const express = require("express");
 const Authrouter = express.Router();
-const { getAuthRegister, postAuthRegister, getAuthLogin , postAuthLogin, getAuthLogout} = require('../controllers/authController');
+const { getAuthRegister, postAuthRegister, getAuthLogin , postAuthLogin, getAuthLogout, postAuthLogout} = require('../controllers/authController');
 
 // Đăng ký
 Authrouter.get('/register', getAuthRegister);
@@ -12,5 +12,6 @@ Authrouter.post('/login', postAuthLogin);
 
 // Đăng xuất
 Authrouter.get('/logout', getAuthLogout);
+Authrouter.post('/logout', postAuthLogout);
 
 module.exports = Authrouter;

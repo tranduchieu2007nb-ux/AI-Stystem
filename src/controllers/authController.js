@@ -14,7 +14,7 @@ const getAuthRegister = (req, res) => {
 const postAuthRegister = async (req, res) => {
     try {
       const { fullname, email, password, location, confirmPassword } = req.body; // Lấy dữ liệu từ request body
-      console.log(req.body);
+      console.log("User register : ", fullname);
 
       if (password !== confirmPassword) {
             return res.send("Confirm password is incorrect.");// Kiểm tra xác nhận mật khẩu
@@ -62,7 +62,14 @@ const postAuthLogin = (req, res, next) => {
 
 };
 
-const getAuthLogout = (req, res, next) => {
+const getAuthLogout = (req, res) => {
+    res.render('auth/logout.ejs', {
+        user: req.user
+    });
+};
+// Xử lý quy trình đăng xuất
+
+const postAuthLogout = (req, res, next) => {
     req.logout(function(err) {
         if (err) {
             return next(err);
@@ -72,6 +79,7 @@ const getAuthLogout = (req, res, next) => {
             if (err) {
                 return next(err);
             }
+            // Xóa session và chuyển hướng người dùng về trang đăng nhập
             res.redirect('/v1/auth/login');
         });
     });
@@ -82,5 +90,6 @@ module.exports = {
     postAuthRegister,
     getAuthLogin,
     postAuthLogin,
-    getAuthLogout
+    getAuthLogout,
+    postAuthLogout
 }
