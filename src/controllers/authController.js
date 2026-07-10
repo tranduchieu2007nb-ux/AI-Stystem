@@ -62,10 +62,25 @@ const postAuthLogin = (req, res, next) => {
 
 };
 
+const getAuthLogout = (req, res, next) => {
+    req.logout(function(err) {
+        if (err) {
+            return next(err);
+        }
+
+        req.session.destroy(function(err) {
+            if (err) {
+                return next(err);
+            }
+            res.redirect('/v1/auth/login');
+        });
+    });
+};
 
 module.exports = {
     getAuthRegister,
     postAuthRegister,
     getAuthLogin,
-    postAuthLogin
+    postAuthLogin,
+    getAuthLogout
 }
