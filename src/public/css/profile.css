@@ -218,3 +218,37 @@ nav ul li a:hover {
     cursor: pointer;
 
 }
+
+/* Dropdown and modal theme overrides */
+.dropdown-menu {
+    background: rgba(19, 31, 48, 0.95) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    padding: 10px !important;
+    min-width: 180px;
+    border-radius: 12px;
+}
+.dropdown-menu .dropdown-item {
+    color: #ffffff !important;
+    background: transparent !important;
+    margin: 6px 0 !important;
+    padding: 10px 14px !important;
+    border-radius: 10px;
+}
+.dropdown-menu .dropdown-item:hover {
+    background: rgba(77, 201, 255, 0.08) !important;
+    color: #7de4ff !important;
+}
+.modal-content {
+    background: #131f30 !important;
+    color: #fff !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 12px !important;
+}
+.modal-body p { color: rgba(255,255,255,0.9); }
+.btn-close {
+    filter: invert(1) !important;
+}
+.modal-footer .btn-danger {
+    background: #e04848 !important;
+    border: none !important;
+}
