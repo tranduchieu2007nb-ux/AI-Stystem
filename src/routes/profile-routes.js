@@ -6,4 +6,5 @@ router.get("/", getProfilePage);
     
 router.post('/update', postUpdateProfile);
 
-    module.exports = router;
+
+module.exports = router;

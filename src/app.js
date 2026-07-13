@@ -1,4 +1,6 @@
 
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 const express = require("express");
 const webRouter = require('./routes/home-routes');
 const Authrouter = require('./routes/auth');
@@ -10,7 +12,7 @@ const session = require('express-session');
 const configPassport = require('./config/passport');
 
 const app = express();
-const PORT = 8386;
+const PORT = process.env.PORT || 8386;
 
 //config view Engine
 viewconfig(app);
@@ -53,6 +55,7 @@ app.use((req, res, next) => {
 app.use('/', webRouter);
 app.use('/v1/auth', Authrouter);
 app.use('/profile', profileRouter);
+app.use('/admin', require('./routes/admin'));
 
 (async (req, res) => {
     try {
