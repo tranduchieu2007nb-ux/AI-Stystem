@@ -55,6 +55,11 @@ app.use((req, res, next) => {
 app.use('/', webRouter);
 app.use('/v1/auth', Authrouter);
 app.use('/profile', profileRouter);
+app.use('/planets', require('./routes/planet'));
+app.use('/constellations', require('./routes/constellation'));
+app.use('/observatories', require('./routes/observatories'));
+app.use('/news', require('./routes/news'));
+app.use('/events', require('./routes/events'));
 app.use('/admin', require('./routes/admin'));
 
 (async (req, res) => {
