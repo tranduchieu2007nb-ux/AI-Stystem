@@ -2,6 +2,7 @@ const express = require('express');
 const User = require('../models/Users');
 const bcrypt = require('bcrypt');
 const safeReturnUrl = require('../utils/return-url');
+const { getLoginRedirectUrl } = require('../utils/loginRedirect');
 const passport = require('passport');
 
 const getAuthRegister = (req, res) => {
@@ -52,15 +53,24 @@ const getAuthLogin = (req, res) => {
     });
 }
 const postAuthLogin = (req, res, next) => {
-
-    passport.authenticate(
-        "local",
-        {
-            successRedirect: "/",
-            failureRedirect: "/v1/auth/login"
+    passport.authenticate("local", (err, user, info) => {
+        if (err) {
+            return next(err);
         }
-    )(req, res, next);
 
+        if (!user) {
+            return res.redirect('/v1/auth/login');
+        }
+
+        req.logIn(user, (loginErr) => {
+            if (loginErr) {
+                return next(loginErr);
+            }
+
+            const redirectUrl = getLoginRedirectUrl(user, req.body.returnUrl || req.query.returnUrl || '');
+            return res.redirect(redirectUrl);
+        });
+    })(req, res, next);
 };
 
 const getAuthLogout = (req, res, next) => {
